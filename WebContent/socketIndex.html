@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>socket upload test</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div id="frame">
+
+      <h1>Socket upload</h1>
+
+      <hr/>
+
+      <h3>Demo</h3>
+      <script src="jquery.min.js"></script>
+	
+	 	<form id="uploadForm" action="" enctype="multipart/form-data" method="post">
+            File:
+            <input type="file" name="file" id="file" multiple="multiple"/> 
+            <br/>
+            <input type="submit" value="Upload" name="upload" id="upload" />
+        </form>
+
+	      <script type="text/javascript">
+		        $(document).ready(function(){
+		    	  $("#upload").on("click",function(event){
+		    		 /* $.ajax({ 
+		    			  url: '/java-resumable/upload2', 
+		    			  type: 'POST', 
+		    			  cache: false, 
+		    			  data: new FormData($('#uploadForm')[0]), 
+		    			  processData: false, 
+		    			  contentType: false }).done(function(res) { }).fail(function(res) {}).success(function(res) {alert(res)});*/
+	    				  //var formData = new FormData();
+	    				  //formData.append('file',$("#uploadForm")[0]);
+	    				  $.ajax({ 
+			    			  url: '/java-resumable/upload2', 
+			    			  type: 'POST', 
+			    			  cache: false, 
+			    			  data: new FormData($('#uploadForm')[0]),
+			    			  processData: false, 
+			    			  contentType: false }).done(function(res) { }).fail(function(res) {}).success(function(res) {alert(res)});
+		    		  	  event.preventDefault();
+		    	 });
+		      }); 
+	     </script>
+	     
+    </div>
+  </body>
+</html>
+
+
+    
